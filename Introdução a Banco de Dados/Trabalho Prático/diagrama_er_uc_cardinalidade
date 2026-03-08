@@ -1,0 +1,26 @@
+// Diagrama ER - Unidades de Conservação
+digraph {
+	UC [label="UnidadeConservacao
+[gml_id, uc_id, nome_uc, cria_ano]" shape=box]
+	Plano [label="PlanoManejo
+[pl_manejo]" shape=box]
+	Conselho [label="ConselhoGestor
+[co_gestor]" shape=box]
+	UF [label=UF shape=box]
+	Municipio [label=Municipio shape=box]
+	Bioma [label="Bioma
+[amazonia, cerrado, etc]" shape=box]
+	R1 [label=possui shape=diamond]
+	R2 [label=localizada_em shape=diamond]
+	R3 [label=abrange shape=diamond]
+	R4 [label=distribuida_em shape=diamond]
+	UC -> R1 [label=1]
+	R1 -> Plano [label=1]
+	UC -> R2 [label=N]
+	R2 -> UF [label=N]
+	UC -> R3 [label=N]
+	R3 -> Municipio [label=N]
+	UC -> R4 [label=N]
+	R4 -> Bioma [label=N]
+	UC -> Conselho [label=1]
+}
